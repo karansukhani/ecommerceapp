@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:ecommerceapp/login.dart';
 import 'package:ecommerceapp/main.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -14,7 +15,7 @@ class Splashscreen_state extends State<SplashScreen> {
   void initState() {
     Timer(Duration(seconds: 2), () {
       Navigator.pushReplacement(
-          context, MaterialPageRoute(builder: (context) => MyHomePage()));
+          context, MaterialPageRoute(builder: (context) => Login()));
     });
     super.initState();
   }
