@@ -16,38 +16,43 @@ class _LoginState extends State<Login> {
               backgroundColor: Colors.black,
       ),
       body:
-      Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text("Login",style: Theme.of(context).textTheme.bodyLarge,),
-          TextField(
-            decoration: InputDecoration(
-                labelText: 'Username',
-              border: OutlineInputBorder(
-                borderSide: BorderSide(style: BorderStyle.solid,color: Colors.pink),
-                borderRadius: BorderRadius.circular(11),
-              )
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(top: 10),
-            child: TextField(
-              obscureText: true,
-              obscuringCharacter: '*',
-              decoration:  InputDecoration(
-                labelText: 'Password',
-                  border: OutlineInputBorder(
-                    borderSide: BorderSide(style: BorderStyle.solid,color: Colors.pink),
-                   borderRadius: BorderRadius.circular(11),
-                  ),
+      Container(
+        width: double.infinity,
+        height: double.infinity,
+        color: Colors.blue,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text("Login",style: Theme.of(context).textTheme.bodyLarge,),
+            TextField(
+              decoration: InputDecoration(
+                  labelText: 'Username',
+                border: OutlineInputBorder(
+                  borderSide: BorderSide(style: BorderStyle.solid,color: Colors.pink),
+                  borderRadius: BorderRadius.circular(11),
+                )
               ),
             ),
-          ),
-          ElevatedButton(onPressed: () {
- Navigator.push(context, MaterialPageRoute(builder: (context)=>MyHomePage()));
-          }, child: Text('Login'),
-          ),
-        ],
+            Padding(
+              padding: const EdgeInsets.only(top: 10),
+              child: TextField(
+                obscureText: true,
+                obscuringCharacter: '*',
+                decoration:  InputDecoration(
+                  labelText: 'Password',
+                    border: OutlineInputBorder(
+                      borderSide: BorderSide(style: BorderStyle.solid,color: Colors.pink),
+                     borderRadius: BorderRadius.circular(11),
+                    ),
+                ),
+              ),
+            ),
+            ElevatedButton(onPressed: () {
+         Navigator.push(context, MaterialPageRoute(builder: (context)=>MyHomePage()));
+            }, child: Text('Login'),
+            ),
+          ],
+        ),
       ),
     );
   }

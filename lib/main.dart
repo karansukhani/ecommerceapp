@@ -6,6 +6,8 @@ import 'package:ecommerceapp/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
+import 'Products/adidas.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -21,7 +23,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
         textTheme: TextTheme(
-      displayLarge: TextStyle(
+            displayLarge: TextStyle(
                 fontWeight: FontWeight.bold, color: Colors.blue, fontSize: 20)),
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
@@ -46,7 +48,8 @@ class _MyHomePageState extends State<MyHomePage> {
           child: Stack(children: [
             InkWell(
                 onTap: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>Profilepage()));
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => Profilepage()));
                 },
                 child: CircleAvatar(
                   backgroundImage: AssetImage("asset/image/admin.png"),
@@ -72,13 +75,20 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
             Positioned(
-                right:0,
+                right: 0,
                 top: 2,
                 child: TextButton(
-                    onPressed: (){
-                      Navigator.push(context,MaterialPageRoute(builder: (context)=>CartState("")));
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => CartState("")));
                     },
-                    child: Icon(Icons.shopping_cart,size: 30,color: Colors.black,)))
+                    child: Icon(
+                      Icons.shopping_cart,
+                      size: 30,
+                      color: Colors.black,
+                    )))
           ]),
         ),
         automaticallyImplyLeading: false,
@@ -135,7 +145,10 @@ class _MyHomePageState extends State<MyHomePage> {
                                   child: Image.asset(
                                     "asset/image/shoe.jpg",
                                   )),
-                              Text("Shoes",style: TextStyle(color: Colors.black),)
+                              Text(
+                                "Shoes",
+                                style: TextStyle(color: Colors.black),
+                              )
                             ],
                           ),
                         ),
@@ -150,7 +163,10 @@ class _MyHomePageState extends State<MyHomePage> {
                                 child: Image.asset(
                                   "asset/image/mobile.jpeg",
                                 )),
-                            Text("Mobile",style: TextStyle(color: Colors.black),)
+                            Text(
+                              "Mobile",
+                              style: TextStyle(color: Colors.black),
+                            )
                           ],
                         ),
                       ),
@@ -164,7 +180,10 @@ class _MyHomePageState extends State<MyHomePage> {
                                 child: Image.asset(
                                   "asset/image/headphone.jpg",
                                 )),
-                            Text("Accesories",style: TextStyle(color: Colors.black),)
+                            Text(
+                              "Accesories",
+                              style: TextStyle(color: Colors.black),
+                            )
                           ],
                         ),
                       ),
@@ -178,7 +197,10 @@ class _MyHomePageState extends State<MyHomePage> {
                                 child: Image.asset(
                                   "asset/image/Perfume.jpg",
                                 )),
-                            Text("Perfume",style: TextStyle(color: Colors.black),)
+                            Text(
+                              "Perfume",
+                              style: TextStyle(color: Colors.black),
+                            )
                           ],
                         ),
                       ),
@@ -214,12 +236,16 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                 ),
               ],
-              options: CarouselOptions(height: 250),
+              options: CarouselOptions(height: 300),
             ),
           ),
           Row(
             children: [
-              Text("New Products"),
+              Text(
+                "New Arrivals",
+                style:
+                    TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+              ),
               Container(
                 width: 230,
               ),
@@ -235,140 +261,275 @@ class _MyHomePageState extends State<MyHomePage> {
               )
             ],
           ),
-          Column(
-            children: [
-              Stack(
-                children: [
-                  Image.asset("asset/image/Adidas-1.jpeg"),
-                  Positioned(
-                      top: 10,
-                      left: 4,
+          InkWell(
+            onTap: (){
+              Navigator.push(context, MaterialPageRoute(builder:(context) => Adidas()));
+            },
+            child: Padding(
+              padding: const EdgeInsets.only(top: 20),
+              child: Container(
+                decoration: BoxDecoration(boxShadow: [
+                  BoxShadow(
+                    color: Colors.transparent,
+                    blurRadius: 15,
+                  )
+                ]),
+                child: Column(
+                  children: [
+                    Container(
+                      decoration: BoxDecoration(boxShadow: [
+                        BoxShadow(
+                          color: Colors.grey,
+                          blurRadius: 10,
+                        )
+                      ]),
                       child: Container(
-                        height: 20,
-                        width: 40,
-                        color: Colors.yellowAccent,
-                        child: Text(
-                          " 25%",
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold, color: Colors.black),
+                        decoration: BoxDecoration(boxShadow: [
+                          BoxShadow(
+                            color: Colors.grey,
+                            blurRadius: 10,
+                          )
+                        ]),
+                        child: Stack(
+                          children: [
+                            Image.asset("asset/image/Adidas-1.jpeg"),
+                            Positioned(
+                                top: 10,
+                                left: 4,
+                                child: Container(
+                                  height: 20,
+                                  width: 40,
+                                  color: Colors.yellowAccent,
+                                  child: Text(
+                                    " 25%",
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.black),
+                                  ),
+                                ))
+                          ],
                         ),
-                      ))
-                ],
+                      ),
+                    ),
+                    Text(
+                      "Adidas Red New Arrival",
+                      style: TextStyle(color: Colors.black),
+                    ),
+                    Text(
+                      "₹25000",
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold, color: Colors.black),
+                    )
+                  ],
+                ),
               ),
-              Text("Adidas Red New Arrival",style: TextStyle(color: Colors.black),),
-              Text(
-                "₹25000",
-                style: TextStyle(fontWeight: FontWeight.bold,color: Colors.black),
-              )
-            ],
+            ),
           ),
-          Column(
-            children: [
-              Stack(
+          Padding(
+            padding: const EdgeInsets.only(top: 20),
+            child: Container(
+              decoration: BoxDecoration(boxShadow: [
+                BoxShadow(
+                  color: Colors.transparent,
+                  blurRadius: 15,
+                )
+              ]),
+              child: Column(
                 children: [
-                  Image.asset("asset/image/Jordan1.jpeg"),
-                  Positioned(
-                      top: 10,
-                      left: 4,
-                      child: Container(
-                        height: 20,
-                        width: 40,
-                        color: Colors.yellowAccent,
-                        child: Text(
-                          " 10%",
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold, color: Colors.black),
-                        ),
-                      ))
+                  Container(
+                    decoration: BoxDecoration(boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey,
+                        blurRadius: 10,
+                      )
+                    ]),
+                    child: Stack(
+                      children: [
+                        Image.asset("asset/image/Jordan1.jpeg"),
+                        Positioned(
+                            top: 10,
+                            left: 4,
+                            child: Container(
+                              height: 20,
+                              width: 40,
+                              color: Colors.yellowAccent,
+                              child: Text(
+                                " 10%",
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.black),
+                              ),
+                            ))
+                      ],
+                    ),
+                  ),
+                  Text(
+                    " Mens Air Jordans",
+                    style: TextStyle(color: Colors.black),
+                  ),
+                  Text(
+                    "₹30000",
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  )
                 ],
               ),
-              Text(" Mens Air Jordans",style: TextStyle(color: Colors.black),),
-              Text(
-                "₹30000",
-                style: TextStyle(fontWeight: FontWeight.bold),
-              )
-            ],
+            ),
           ),
-          Column(
-            children: [
-              Stack(
-                children: [
-                  Image.asset("asset/image/Adidas-1.jpeg"),
-                  Positioned(
-                      top: 10,
-                      left: 4,
-                      child: Container(
-                        height: 20,
-                        width: 40,
-                        color: Colors.yellowAccent,
-                        child: Text(
-                          " 25%",
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold, color: Colors.black),
-                        ),
-                      ))
-                ],
+          InkWell(
+            onTap: (){
+              Navigator.push(context, MaterialPageRoute(builder:(context) => Adidas()));
+            },
+
+            child: Padding(
+              padding: const EdgeInsets.only(top: 20),
+              child: Container(
+                decoration: BoxDecoration(boxShadow: [
+                  BoxShadow(
+                    color: Colors.transparent,
+                    blurRadius: 15,
+                  )
+                ]),
+                child: Column(
+                  children: [
+                    Container(
+                      decoration: BoxDecoration(boxShadow: [
+                        BoxShadow(
+                          color: Colors.grey,
+                          blurRadius: 10,
+                        )
+                      ]),
+                      child: Stack(
+                        children: [
+                          Image.asset("asset/image/Adidas-1.jpeg"),
+                          Positioned(
+                              top: 10,
+                              left: 4,
+                              child: Container(
+                                height: 20,
+                                width: 40,
+                                color: Colors.yellowAccent,
+                                child: Text(
+                                  " 25%",
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.black),
+                                ),
+                              ))
+                        ],
+                      ),
+                    ),
+                    Text(
+                      "Mens Dunk Sneakers",
+                      style: TextStyle(color: Colors.black),
+                    ),
+                    Text(
+                      "₹10000",
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    )
+                  ],
+                ),
               ),
-              Text("Mens Dunk Sneakers",style: TextStyle(color: Colors.black),),
-              Text(
-                "₹10000",
-                style: TextStyle(fontWeight: FontWeight.bold),
-              )
-            ],
+            ),
           ),
-          Column(
-            children: [
-              Stack(
+          Padding(
+            padding: const EdgeInsets.only(top: 20),
+            child: Container(
+              decoration: BoxDecoration(boxShadow: [
+                BoxShadow(
+                  color: Colors.transparent,
+                  blurRadius: 15,
+                )
+              ]),
+              child: Column(
                 children: [
-                  Image.asset("asset/image/bully.webp"),
-                  Positioned(
-                      top: 10,
-                      left: 4,
-                      child: Container(
-                        height: 20,
-                        width: 40,
-                        color: Colors.yellowAccent,
-                        child: Text(
-                          " 10%",
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold, color: Colors.black),
-                        ),
-                      ))
+                  Container(
+                    decoration: BoxDecoration(boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey,
+                        blurRadius: 10,
+                      )
+                    ]),
+                    child: Stack(
+                      children: [
+                        Image.asset("asset/image/bully.webp"),
+                        Positioned(
+                            top: 10,
+                            left: 4,
+                            child: Container(
+                              height: 20,
+                              width: 40,
+                              color: Colors.yellowAccent,
+                              child: Text(
+                                " 10%",
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.black),
+                              ),
+                            ))
+                      ],
+                    ),
+                  ),
+                  Text(
+                    "BULLY SNEAKER 'BALCK/WHITE'",
+                    style: TextStyle(color: Colors.black),
+                  ),
+                  Text(
+                    "₹29000",
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  )
                 ],
               ),
-              Text("BULLY SNEAKER 'BALCK/WHITE'",style: TextStyle(color: Colors.black),),
-              Text(
-                "₹29000",
-                style: TextStyle(fontWeight: FontWeight.bold),
-              )
-            ],
+            ),
           ),
-          Column(
-            children: [
-              Stack(
+          Padding(
+            padding: const EdgeInsets.only(top: 20),
+            child: Container(
+              decoration: BoxDecoration(boxShadow: [
+                BoxShadow(
+                  color: Colors.transparent,
+                  blurRadius: 15,
+                )
+              ]),
+              child: Column(
                 children: [
-                  Image.asset("asset/image/NikeDunk.png.webp"),
-                  Positioned(
-                      top: 10,
-                      left: 4,
-                      child: Container(
-                        height: 20,
-                        width: 40,
-                        color: Colors.yellowAccent,
-                        child: Text(
-                          " 10%",
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold, color: Colors.black),
-                        ),
-                      ))
+                  Container(
+                    decoration: BoxDecoration(boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey,
+                        blurRadius: 10,
+                      )
+                    ]),
+                    child: Stack(
+                      children: [
+                        Image.asset("asset/image/NikeDunk.png.webp"),
+                        Positioned(
+                            top: 10,
+                            left: 4,
+                            child: Container(
+                              height: 20,
+                              width: 40,
+                              color: Colors.yellowAccent,
+                              child: Text(
+                                " 10%",
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.black),
+                              ),
+                            ))
+                      ],
+                    ),
+                  ),
+                  Text(
+                    "NIKE SB DUNK LOW THE POWERPUFF GIRLS BUBBLES",
+                    style: TextStyle(color: Colors.black),
+                  ),
+                  Text(
+                    "₹43,500",
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  )
                 ],
               ),
-              Text("NIKE SB DUNK LOW THE POWERPUFF GIRLS BUBBLES",style: TextStyle(color: Colors.black),),
-              Text(
-                "₹43,500",
-                style: TextStyle(fontWeight: FontWeight.bold),
-              )
-            ],
+            ),
           ),
         ]),
       ),
