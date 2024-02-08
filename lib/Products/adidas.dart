@@ -13,7 +13,9 @@ class Adidas extends StatefulWidget {
 }
 
 class _AdidasState extends State<Adidas> {
-  var is_selected = false;
+var is_selected=false;
+ var quan=1;
+var quancontroller=TextEditingController(text: "1");
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,7 +38,7 @@ class _AdidasState extends State<Adidas> {
           ),
           Padding(
             padding: const EdgeInsets.only(top: 5,bottom: 5),
-            child: Text("Adidas Originals"),
+            child: Text("Adidas Originals",),
           ),
           Padding(
             padding: const EdgeInsets.only(top: 5,bottom: 5),
@@ -103,11 +105,40 @@ class _AdidasState extends State<Adidas> {
               ),
             ],
           ),
+
+          Row(
+            children: [
+              TextButton(onPressed: (){
+                setState(() {
+                  quan--;
+                });
+              }, child: Text("-",style: TextStyle(fontWeight: FontWeight.bold),)),
+              SizedBox(
+                width: 40,
+                height: 20,
+                child: TextFormField(
+                  controller: quancontroller,
+                 keyboardType: TextInputType.number,
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(
+                      // borderSide: BorderSide(style: BorderStyle.solid),
+                    )
+                  ),
+                ),
+              ),
+              TextButton(onPressed: (){
+                setState(() {
+                  quan++;
+                });
+              }, child: Text("+",style: TextStyle(fontWeight: FontWeight.bold),)),
+            ],
+          ),
+
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: ElevatedButton(
               onPressed: () {
-
+        Navigator.push(context, MaterialPageRoute(builder:(context) =>CartState(quancontroller.text.toString())));
               },
               child: Center(
                 child: Text("Add to Cart",style: TextStyle(fontWeight: FontWeight.bold,color: Colors.black),),

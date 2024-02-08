@@ -2,16 +2,22 @@ import 'package:ecommerceapp/Products/adidas.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class Cart extends StatefulWidget {
 
+
+class CartState extends StatefulWidget {
+  var quantity;
+
+  CartState(
+      this.quantity,
+      );
 
   @override
-  State<StatefulWidget> createState() => CartState();
+  State<CartState> createState() => _CartStateState();
 }
 
-class CartState extends State<Cart> {
+class _CartStateState extends State<CartState> {
+  // var nameofproduct;
 
-  var quantity=1;
   var item=["Adidas"];
 
   @override
@@ -42,8 +48,8 @@ class CartState extends State<Cart> {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text("Adidas Red New Arrival"),
-                Text("Rs.25000",
+                Text("Adidas"),
+                Text("₹ 14,999.00",
                 style: TextStyle(fontWeight: FontWeight.bold),)
               ],
             ),
@@ -51,14 +57,14 @@ class CartState extends State<Cart> {
             padding: const EdgeInsets.only(left: 20),
             child: TextButton(onPressed: (){
               setState(() {
-                quantity--;
+                widget.quantity--;
               });
             }, child: Text("-",style: TextStyle(fontWeight: FontWeight.bold))),
           ),
-            Text("$quantity"),
+            Text("${widget.quantity}"),
             TextButton(onPressed: (){
               setState(() {
-                quantity++;
+                widget.quantity++;
               });
             }, child: Text("+",style: TextStyle(fontWeight: FontWeight.bold),))
           ],
@@ -68,6 +74,4 @@ class CartState extends State<Cart> {
             ),
     );
   }
-
-
 }

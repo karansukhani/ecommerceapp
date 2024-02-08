@@ -46,10 +46,10 @@ class Footwear_State extends State<Footwear>{
                        ))
                  ],
                ),
-               Text("as Red New ArrivalAdid"),
+               Text("Adidas Red New Arrival",style: TextStyle(color: Colors.black),),
                Text(
                  "Rs.25000",
-                 style: TextStyle(fontWeight: FontWeight.bold),
+                 style: TextStyle(fontWeight: FontWeight.bold,color: Colors.black),
                )
              ],
            ),
@@ -75,10 +75,10 @@ class Footwear_State extends State<Footwear>{
                    ))
              ],
            ),
-           Text(" Mens Air Jordans"),
+           Text(" Mens Air Jordans",style: TextStyle(color: Colors.black),),
            Text(
              "Rs.30000",
-             style: TextStyle(fontWeight: FontWeight.bold),
+             style: TextStyle(fontWeight: FontWeight.bold,color: Colors.black),
            )
          ],
        ),
@@ -102,10 +102,10 @@ class Footwear_State extends State<Footwear>{
                    ))
              ],
            ),
-           Text("Mens Dunk Sneakers"),
+           Text("Mens Dunk Sneakers",style: TextStyle(color: Colors.black),),
            Text(
              "Rs.10000",
-             style: TextStyle(fontWeight: FontWeight.bold),
+             style: TextStyle(fontWeight: FontWeight.bold,color: Colors.black),
            )
          ],
        ),
@@ -129,10 +129,10 @@ class Footwear_State extends State<Footwear>{
                      ))
                ],
              ),
-             Text("BULLY SNEAKER 'BALCK/WHITE'"),
+             Text("BULLY SNEAKER 'BALCK/WHITE'",style: TextStyle(color: Colors.black),),
              Text(
                "Rs.29000",
-               style: TextStyle(fontWeight: FontWeight.bold),
+               style: TextStyle(fontWeight: FontWeight.bold,color: Colors.black),
              )
            ],
          ),
@@ -156,10 +156,10 @@ class Footwear_State extends State<Footwear>{
                      ))
                ],
              ),
-             Text("NIKE SB DUNK LOW THE POWERPUFF GIRLS BUBBLES"),
+             Text("NIKE SB DUNK LOW THE POWERPUFF GIRLS BUBBLES",style: TextStyle(color: Colors.black),),
              Text(
                "₹43,500",
-               style: TextStyle(fontWeight: FontWeight.bold),
+               style: TextStyle(fontWeight: FontWeight.bold,color: Colors.black),
              )
            ],
          ),
