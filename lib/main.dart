@@ -170,10 +170,11 @@ class _MyHomePageState extends State<MyHomePage> {
                           child: Column(
                             children: [
                               Container(
-                                  decoration: BoxDecoration(borderRadius: BorderRadius.circular(10)),
+                                  decoration: BoxDecoration(borderRadius: BorderRadius.circular(100),
+                                    color: Colors.white,),
                                   height: 50,
                                   width: 80,
-                                  color: Colors.white,
+
                                   child: Center(
                                     child: Image.asset(
                                       "asset/image/shoe.jpg",
