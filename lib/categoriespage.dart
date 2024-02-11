@@ -10,6 +10,11 @@ class _CategoriesState extends State<Categories> {
   @override
   Widget build(BuildContext context) {
    return Scaffold(
+     appBar: AppBar(
+       leading: BackButton(
+         color: Colors.black,
+       ),
+     ),
      body: GridView.extent(maxCrossAxisExtent: 200,
      crossAxisSpacing: 10,
      mainAxisSpacing: 10,
@@ -24,7 +29,7 @@ class _CategoriesState extends State<Categories> {
                  width: 200,
                  height: 100,
                  child: Image.asset("asset/image/shoe.jpg",)),
-             Text("Shoes")
+             Text("Shoes",style: TextStyle(color: Colors.black),)
            ],
          ),
        ),

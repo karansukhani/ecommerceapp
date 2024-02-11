@@ -1,4 +1,5 @@
 import 'package:ecommerceapp/Products/adidas.dart';
+import 'package:ecommerceapp/Products/jordan.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 // import 'package:readmore/readmore.dart';
@@ -18,7 +19,10 @@ class Footwear_State extends State<Footwear>{
    return Scaffold(
      appBar: AppBar(
        backgroundColor: Colors.black,
-       title: Center(child: Text("Footwear",style: TextStyle(color: Colors.white),)),
+       title: Text("Footwear",style: TextStyle(color: Colors.white),),
+       leading: BackButton(
+         color: Colors.white,
+       ),
      ),
      body: ListView(
        children: [
@@ -86,53 +90,58 @@ class Footwear_State extends State<Footwear>{
              ),
            ),
          ),
-         Padding(
-           padding: const EdgeInsets.only(top: 20),
-           child: Container(
-             decoration: BoxDecoration(boxShadow: [
-               BoxShadow(
-                 color: Colors.transparent,
-                 blurRadius: 15,
-               )
-             ]),
-             child: Column(
-               children: [
-                 Container(
-                   decoration: BoxDecoration(boxShadow: [
-                     BoxShadow(
-                       color: Colors.grey,
-                       blurRadius: 10,
-                     )
-                   ]),
-                   child: Stack(
-                     children: [
-                       Image.asset("asset/image/Jordan1.jpeg"),
-                       Positioned(
-                           top: 10,
-                           left: 4,
-                           child: Container(
-                             height: 20,
-                             width: 40,
-                             color: Colors.yellowAccent,
-                             child: Text(
-                               " 10%",
-                               style: TextStyle(
-                                   fontWeight: FontWeight.bold,
-                                   color: Colors.black),
-                             ),
-                           ))
-                     ],
-                   ),
-                 ),
-                 Text(
-                   " Mens Air Jordans",
-                   style: TextStyle(color: Colors.black),
-                 ),
-                 Text(
-                   "₹30000",
-                   style: TextStyle(fontWeight: FontWeight.bold),
+         InkWell(
+           onTap: (){
+             Navigator.push(context, MaterialPageRoute(builder: (context)=>Jordan()));
+           },
+           child: Padding(
+             padding: const EdgeInsets.only(top: 20),
+             child: Container(
+               decoration: BoxDecoration(boxShadow: [
+                 BoxShadow(
+                   color: Colors.transparent,
+                   blurRadius: 15,
                  )
-               ],
+               ]),
+               child: Column(
+                 children: [
+                   Container(
+                     decoration: BoxDecoration(boxShadow: [
+                       BoxShadow(
+                         color: Colors.grey,
+                         blurRadius: 10,
+                       )
+                     ]),
+                     child: Stack(
+                       children: [
+                         Image.asset("asset/image/Jordan1.jpeg"),
+                         Positioned(
+                             top: 10,
+                             left: 4,
+                             child: Container(
+                               height: 20,
+                               width: 40,
+                               color: Colors.yellowAccent,
+                               child: Text(
+                                 " 10%",
+                                 style: TextStyle(
+                                     fontWeight: FontWeight.bold,
+                                     color: Colors.black),
+                               ),
+                             ))
+                       ],
+                     ),
+                   ),
+                   Text(
+                     " Mens Air Jordans",
+                     style: TextStyle(color: Colors.black),
+                   ),
+                   Text(
+                     "₹30000",
+                     style: TextStyle(fontWeight: FontWeight.bold),
+                   )
+                 ],
+               ),
              ),
            ),
          ),

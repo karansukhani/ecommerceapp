@@ -1,8 +1,11 @@
+import 'package:ecommerceapp/Products/jordan.dart';
 import 'package:ecommerceapp/cart.dart';
 import 'package:ecommerceapp/categoriespage.dart';
+import 'package:ecommerceapp/constants/text_strings.dart';
+import 'package:ecommerceapp/login.dart';
 import 'package:ecommerceapp/profile.dart';
 import 'package:ecommerceapp/sneakerspage.dart';
-import 'package:ecommerceapp/splash_screen.dart';
+// import 'package:ecommerceapp/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
@@ -25,10 +28,10 @@ class MyApp extends StatelessWidget {
         textTheme: TextTheme(
             displayLarge: TextStyle(
                 fontWeight: FontWeight.bold, color: Colors.blue, fontSize: 20)),
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
         useMaterial3: true,
       ),
-      home: SplashScreen(),
+      home: LoginState(),
     );
   }
 }
@@ -43,72 +46,99 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: SizedBox(
-          width: double.infinity,
-          child: Stack(children: [
-            InkWell(
-                onTap: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => Profilepage()));
-                },
-                child: CircleAvatar(
-                  backgroundImage: AssetImage("asset/image/admin.png"),
-                )),
-            Positioned(
-                left: 100,
-                right: 100,
-                top: 10,
-                child: Text(
-                  "Satguru Creations",
-                  style: Theme.of(context).textTheme.displayLarge,
-                )),
-            // Container(width: 70,),
-            Positioned(
-              right: 60,
-              top: 10,
-              child: Container(
-                width: 20,
-                height: 20,
-                child: Image.asset(
-                  "asset/image/wishlist-1.png",
-                ),
-              ),
-            ),
-            Positioned(
-                right: 0,
-                top: 2,
-                child: TextButton(
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => CartState("")));
-                    },
-                    child: Icon(
-                      Icons.shopping_cart,
-                      size: 30,
-                      color: Colors.black,
-                    )))
-          ]),
+        title: Column(
+          children: [
+            Text(KTexts.homeAppbarTitle,style: Theme.of(context).textTheme.labelMedium!.apply(color: Colors.grey),),
+            Text(KTexts.homeAppbarSubTitle,style: Theme.of(context).textTheme.headlineSmall!.apply(color: Colors.black),),
+          ],
         ),
+        actions: [
+          Stack(
+            children: [
+              IconButton(onPressed: (){}, icon: Icon(Icons.shopping_cart_rounded,color: Colors.black,)),
+              Positioned(
+                right: 0,
+                child: Container(height: 15,
+                width: 15,
+
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  color: Colors.yellowAccent.withOpacity(0.5),
+                ),
+                child: Center(child: Text("2",style: Theme.of(context).textTheme.labelLarge,)),),
+              )
+            ],
+          )
+        ],
+        // title: SizedBox(
+        //   width: double.infinity,
+        //   child: Stack(children: [
+        //     InkWell(
+        //         onTap: () {
+        //           Navigator.push(context,
+        //               MaterialPageRoute(builder: (context) => Profilepage()));
+        //         },
+        //         child: CircleAvatar(
+        //           backgroundImage: AssetImage("asset/image/admin.png"),
+        //         )),
+        //     Positioned(
+        //         left: 100,
+        //         right: 100,
+        //         top: 10,
+        //         child: Text(
+        //           "Satguru Creations",
+        //           style: Theme.of(context).textTheme.displayLarge,
+        //         )),
+        //     // Container(width: 70,),
+        //     Positioned(
+        //       right: 60,
+        //       top: 10,
+        //       child: Container(
+        //         width: 20,
+        //         height: 20,
+        //         child: Image.asset(
+        //           "asset/image/wishlist-1.png",
+        //         ),
+        //       ),
+        //     ),
+        //     Positioned(
+        //         right: 0,
+        //         top: 2,
+        //         child: TextButton(
+        //             onPressed: () {
+        //               Navigator.push(
+        //                   context,
+        //                   MaterialPageRoute(
+        //                       builder: (context) => CartState("")));
+        //             },
+        //             child: Icon(
+        //               Icons.shopping_cart,
+        //               size: 30,
+        //               color: Colors.black,
+        //             )))
+        //   ]),
+        // ),
         automaticallyImplyLeading: false,
       ),
       body: SingleChildScrollView(
         child: Column(children: [
-          TextField(
-              decoration: InputDecoration(
-            hintText: "Search",
-            suffixIcon: Icon(Icons.search),
-            border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(20),
-              // borderSide: BorderSide(),
-            ),
-          )),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: TextField(
+                decoration: InputDecoration(
+              hintText: "Search",
+              prefixIcon: Icon(Icons.search),
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(20),
+                // borderSide: BorderSide(),
+              ),
+            )),
+          ),
           Row(
             children: [
-              Text("Categories"),
+              Text("Popular Categories",style: TextStyle(fontWeight: FontWeight.bold),),
               Container(
-                width: 250,
+                width: 200,
               ),
               TextButton(
                 onPressed: () {
@@ -139,11 +169,15 @@ class _MyHomePageState extends State<MyHomePage> {
                           },
                           child: Column(
                             children: [
-                              SizedBox(
+                              Container(
+                                  decoration: BoxDecoration(borderRadius: BorderRadius.circular(10)),
                                   height: 50,
                                   width: 80,
-                                  child: Image.asset(
-                                    "asset/image/shoe.jpg",
+                                  color: Colors.white,
+                                  child: Center(
+                                    child: Image.asset(
+                                      "asset/image/shoe.jpg",
+                                    ),
                                   )),
                               Text(
                                 "Shoes",
@@ -157,12 +191,14 @@ class _MyHomePageState extends State<MyHomePage> {
                         padding: const EdgeInsets.all(8.0),
                         child: Column(
                           children: [
-                            SizedBox(
+                            Container(
+                              decoration: BoxDecoration(borderRadius: BorderRadius.circular(100)),
                                 height: 50,
                                 width: 80,
                                 child: Image.asset(
                                   "asset/image/mobile.jpeg",
-                                )),
+                                ),
+                            ),
                             Text(
                               "Mobile",
                               style: TextStyle(color: Colors.black),
@@ -174,7 +210,8 @@ class _MyHomePageState extends State<MyHomePage> {
                         padding: const EdgeInsets.all(8.0),
                         child: Column(
                           children: [
-                            SizedBox(
+                            Container(
+                              decoration: BoxDecoration(borderRadius: BorderRadius.circular(100)),
                                 height: 50,
                                 width: 80,
                                 child: Image.asset(
@@ -191,7 +228,8 @@ class _MyHomePageState extends State<MyHomePage> {
                         padding: const EdgeInsets.all(8.0),
                         child: Column(
                           children: [
-                            SizedBox(
+                            Container(
+                                decoration: BoxDecoration(borderRadius: BorderRadius.circular(100)),
                                 height: 50,
                                 width: 80,
                                 child: Image.asset(
@@ -273,7 +311,9 @@ class _MyHomePageState extends State<MyHomePage> {
                     color: Colors.transparent,
                     blurRadius: 15,
                   )
-                ]),
+                ],
+                // border: Border.all(color: Colors.black)
+                ),
                 child: Column(
                   children: [
                     Container(
@@ -325,53 +365,58 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.only(top: 20),
-            child: Container(
-              decoration: BoxDecoration(boxShadow: [
-                BoxShadow(
-                  color: Colors.transparent,
-                  blurRadius: 15,
-                )
-              ]),
-              child: Column(
-                children: [
-                  Container(
-                    decoration: BoxDecoration(boxShadow: [
-                      BoxShadow(
-                        color: Colors.grey,
-                        blurRadius: 10,
-                      )
-                    ]),
-                    child: Stack(
-                      children: [
-                        Image.asset("asset/image/Jordan1.jpeg"),
-                        Positioned(
-                            top: 10,
-                            left: 4,
-                            child: Container(
-                              height: 20,
-                              width: 40,
-                              color: Colors.yellowAccent,
-                              child: Text(
-                                " 10%",
-                                style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.black),
-                              ),
-                            ))
-                      ],
-                    ),
-                  ),
-                  Text(
-                    " Mens Air Jordans",
-                    style: TextStyle(color: Colors.black),
-                  ),
-                  Text(
-                    "₹30000",
-                    style: TextStyle(fontWeight: FontWeight.bold),
+          InkWell(
+            onTap: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context)=>Jordan()));
+            },
+            child: Padding(
+              padding: const EdgeInsets.only(top: 20),
+              child: Container(
+                decoration: BoxDecoration(boxShadow: [
+                  BoxShadow(
+                    color: Colors.transparent,
+                    blurRadius: 15,
                   )
-                ],
+                ]),
+                child: Column(
+                  children: [
+                    Container(
+                      decoration: BoxDecoration(boxShadow: [
+                        BoxShadow(
+                          color: Colors.grey,
+                          blurRadius: 10,
+                        )
+                      ]),
+                      child: Stack(
+                        children: [
+                          Image.asset("asset/image/Jordan1.jpeg"),
+                          Positioned(
+                              top: 10,
+                              left: 4,
+                              child: Container(
+                                height: 20,
+                                width: 40,
+                                color: Colors.yellowAccent,
+                                child: Text(
+                                  " 10%",
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.black),
+                                ),
+                              ))
+                        ],
+                      ),
+                    ),
+                    Text(
+                      " Mens Air Jordans",
+                      style: TextStyle(color: Colors.black),
+                    ),
+                    Text(
+                      "₹30000",
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    )
+                  ],
+                ),
               ),
             ),
           ),
