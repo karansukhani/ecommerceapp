@@ -1,4 +1,4 @@
-import 'package:ecommerceapp/sneakerspage.dart';
+import 'package:ecommerceapp/sneakers_listing_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 

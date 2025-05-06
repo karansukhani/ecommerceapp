@@ -1,5 +1,6 @@
-// import 'dart:js_interop_unsafe';
-import 'package:ecommerceapp/cart.dart';
+
+import 'package:ecommerceapp/constants/image_strings.dart';
+import 'package:ecommerceapp/router/routing_constant.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
@@ -14,48 +15,46 @@ class Denver extends StatefulWidget {
 
 class _DenverState extends State<Denver> {
   // var is_selected=false;
-  var quan=1;
-  var quancontroller=TextEditingController(text: "1");
+  int quan=1;
+  TextEditingController quantityController=TextEditingController(text: "1");
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: ListView(
         children: [
-          Container(
-            child: CarouselSlider(
-              items: [
-                Image.asset("asset/image/denver1.jpg"),
-                Image.asset("asset/image/denver2.jpg"),
-                Image.asset("asset/image/denver3.jpg"),
-                Image.asset("asset/image/denver4.jpg"),
-              ],
-              options: CarouselOptions(height: 200),
-            ),
+          CarouselSlider(
+            items: [
+              Image.asset(AssetConstants.denver1Image),
+              Image.asset(AssetConstants.denver2Image),
+              Image.asset(AssetConstants.denver3Image),
+              Image.asset(AssetConstants.denver4Image),
+            ],
+            options: CarouselOptions(height: 200),
           ),
-          Container(
+          const SizedBox(
             height: 20,
             width: double.infinity,
           ),
-          Padding(
-            padding: const EdgeInsets.only(top: 5,bottom: 5),
+          const Padding(
+            padding: EdgeInsets.only(top: 5,bottom: 5),
             child: Text("DENVER Imperial Deodorant - 165ML | Long Lasting Deo Body Spray for Men",),
           ),
-          Padding(
-            padding: const EdgeInsets.only(top: 5,bottom: 5),
+          const Padding(
+            padding: EdgeInsets.only(top: 5,bottom: 5),
             child: Text(
               "TRAE YOUNG 3 'OFF WHITE/RED/CORE BLACK'",
               style: TextStyle(fontWeight: FontWeight.bold),
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.only(top: 5,bottom: 5),
+          const Padding(
+            padding: EdgeInsets.only(top: 5,bottom: 5),
             child: Text("₹ 14,999.00"),
           ),
-          Padding(
-            padding: const EdgeInsets.only(top: 5,bottom: 5),
+          const Padding(
+            padding: EdgeInsets.only(top: 5,bottom: 5),
             child: Text("Stock : InStock"),
           ),
-          Text("Size"),
+          const Text("Size"),
           // Row(
           //   children: [
           //     Padding(
@@ -112,14 +111,14 @@ class _DenverState extends State<Denver> {
                 setState(() {
                   quan--;
                 });
-              }, child: Text("-",style: TextStyle(fontWeight: FontWeight.bold),)),
+              }, child: const Text("-",style: TextStyle(fontWeight: FontWeight.bold),)),
               SizedBox(
                 width: 40,
                 height: 20,
                 child: TextFormField(
-                  controller: quancontroller,
+                  controller: quantityController,
                   keyboardType: TextInputType.number,
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                       border: OutlineInputBorder(
                         // borderSide: BorderSide(style: BorderStyle.solid),
                       )
@@ -130,7 +129,7 @@ class _DenverState extends State<Denver> {
                 setState(() {
                   quan++;
                 });
-              }, child: Text("+",style: TextStyle(fontWeight: FontWeight.bold),)),
+              }, child: const Text("+",style: TextStyle(fontWeight: FontWeight.bold),)),
             ],
           ),
 
@@ -138,18 +137,18 @@ class _DenverState extends State<Denver> {
             padding: const EdgeInsets.all(8.0),
             child: ElevatedButton(
               onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder:(context) =>CartState(quancontroller.text.toString())));
+                Navigator.of(context).pushNamed(cartScreenRoute,arguments: quantityController.text.toString());
               },
-              child: Center(
-                child: Text("Add to Cart",style: TextStyle(fontWeight: FontWeight.bold,color: Colors.black),),
-              ),
               style: ButtonStyle(
                   backgroundColor:
                   MaterialStateColor.resolveWith((states) => Colors.blue)),
+              child: const Center(
+                child: Text("Add to Cart",style: TextStyle(fontWeight: FontWeight.bold,color: Colors.black),),
+              ),
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.only(top: 5,bottom: 5),
+          const Padding(
+            padding: EdgeInsets.only(top: 5,bottom: 5),
             child: ReadMoreText(
               "REDUCES BODY ODOR : One of the primary benefits of deodorant is that it helps reduce body odor. Deodorants contain antimicrobial agents that help control the growth of odor-causing bacteria"
             "  KEEPS YOU FEELING FRESH : Using deodorant can help you feel fresh and clean throughout the day. It helps to mask unpleasant odors and can give you a sense of confidence."

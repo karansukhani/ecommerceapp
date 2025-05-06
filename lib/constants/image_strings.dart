@@ -2,7 +2,7 @@
 /* -- App Image Strings -- */
 
 /// This class contains all the App Images in String formats.
-class TImages {
+class AssetConstants {
 
   // -- App Logos
   static const String darkAppLogo = "assets/logos/t-store-splash-logo-black.png";
@@ -162,5 +162,11 @@ class TImages {
   static const String paystack = "assets/icons/payment_methods/paystack.png";
   static const String paytm = "assets/icons/payment_methods/paytm.png";
   static const String successfulPaymentIcon = "assets/icons/payment_methods/successful_payment_icon.png";
+
+  //denver images
+static const String denver1Image="asset/image/denver1.jpg";
+static const String denver2Image="asset/image/denver2.jpg";
+static const String denver3Image="asset/image/denver3.jpg";
+static const String denver4Image="asset/image/denver4.jpg";
 }
 

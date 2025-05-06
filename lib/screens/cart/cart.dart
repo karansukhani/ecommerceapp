@@ -1,4 +1,4 @@
-import 'package:ecommerceapp/Products/adidas.dart';
+import 'package:ecommerceapp/Products/adidas_product_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -52,7 +52,7 @@ class _CartStateState extends State<CartState> {
             children: [
               InkWell(
                 onTap: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>Adidas()));
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>AdidasProductScreen()));
                 },
                 child: CircleAvatar(backgroundImage: AssetImage("asset/image/Adidas-1.jpeg",),
                 ),

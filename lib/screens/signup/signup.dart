@@ -3,8 +3,8 @@ import 'package:ecommerceapp/constants/text_strings.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import 'constants/colors.dart';
-import 'helpers/helper_functions.dart';
+import '../../constants/colors.dart';
+import '../../helpers/helper_functions.dart';
 
 class Signup extends StatelessWidget
 {

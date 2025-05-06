@@ -1,5 +1,5 @@
-import 'package:ecommerceapp/Products/adidas.dart';
-import 'package:ecommerceapp/Products/jordan.dart';
+import 'package:ecommerceapp/Products/adidas_product_screen.dart';
+import 'package:ecommerceapp/Products/jordan_product_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 // import 'package:readmore/readmore.dart';
@@ -28,7 +28,7 @@ class Footwear_State extends State<Footwear>{
        children: [
          InkWell(
            onTap: (){
-             Navigator.push(context, MaterialPageRoute(builder:(context) => Adidas()));
+             Navigator.push(context, MaterialPageRoute(builder:(context) => AdidasProductScreen()));
            },
            child: Padding(
              padding: const EdgeInsets.only(top: 20),
